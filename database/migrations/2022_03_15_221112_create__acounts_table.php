@@ -13,7 +13,10 @@ class CreateAcountsTable extends Migration
      */
     public function up()
     {
-        
+        Schema::create('_acounts', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
     }
 
     /**
