@@ -16,6 +16,8 @@ class CreateExpensesTable extends Migration
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('expense_ategory_id')->references('id')->on('expenses_categories');
+            $table->float('value');
             $table->timestamps();
         });
     }
