@@ -12,4 +12,14 @@ class Income extends Model
     protected $fillable = [
         'value',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function incomeCategory()
+    {
+        return $this->hasOne(IncomeCategory::class);
+    }
 }
