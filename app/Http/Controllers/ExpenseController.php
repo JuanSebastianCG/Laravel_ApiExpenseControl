@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Expense;
 use Illuminate\Http\Request;
+use App\Http\Requests\ExpenseRequest;
 
 class ExpenseController extends Controller
 {
@@ -24,7 +25,7 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        //
+        return view('expenses.create')
     }
 
     /**
@@ -33,9 +34,16 @@ class ExpenseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExpenseRequest $request)
     {
-        //
+        $expense = new Expense();
+        $expense->fill($request->input());
+        $expense->user_id = Auth::id();
+        $expense->expense_category_id =
+        $expense->save();
+
+        return redirect(route(''));
+
     }
 
     /**
@@ -57,7 +65,7 @@ class ExpenseController extends Controller
      */
     public function edit(Expense $expense)
     {
-        //
+        return view('expenses.edit', compact('expense'))
     }
 
     /**
@@ -67,9 +75,12 @@ class ExpenseController extends Controller
      * @param  \App\Models\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Expense $expense)
+    public function update(ExpenseRequest $request, Expense $expense)
     {
-        //
+        $expense->fill($request->input())
+        $expense->save()
+
+        return redirect(route(''))
     }
 
     /**
@@ -80,6 +91,6 @@ class ExpenseController extends Controller
      */
     public function destroy(Expense $expense)
     {
-        //
+        $expense->delete();
     }
 }

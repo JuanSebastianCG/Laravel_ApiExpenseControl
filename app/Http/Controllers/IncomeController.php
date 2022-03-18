@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Income;
 use Illuminate\Http\Request;
+use App\Http\Requests\IncomeRequest;
 
 class IncomeController extends Controller
 {
@@ -24,7 +25,7 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        //
+        return view('incomes.create')
     }
 
     /**
@@ -33,9 +34,15 @@ class IncomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(IncomeRequest $request)
     {
-        //
+        $income = new Expense();
+        $income->fill($request->input());
+        $income->user_id = Auth::id();
+        $income->income_category_id =
+        $income->save();
+
+        return redirect(route(''));
     }
 
     /**
@@ -46,7 +53,7 @@ class IncomeController extends Controller
      */
     public function show(Income $income)
     {
-        //
+
     }
 
     /**
@@ -57,7 +64,7 @@ class IncomeController extends Controller
      */
     public function edit(Income $income)
     {
-        //
+        return view('incomes.edit', compact('income'))
     }
 
     /**
@@ -67,9 +74,12 @@ class IncomeController extends Controller
      * @param  \App\Models\Income  $income
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Income $income)
+    public function update(IncomeRequest $request, Income $income)
     {
-        //
+        $income->fill($request->input())
+        $income->save()
+
+        return redirect(route(''))
     }
 
     /**
@@ -80,6 +90,6 @@ class IncomeController extends Controller
      */
     public function destroy(Income $income)
     {
-        //
+        $income->delete();
     }
 }
