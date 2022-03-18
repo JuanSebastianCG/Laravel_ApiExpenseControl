@@ -10,17 +10,17 @@ class Expense extends Model
     use HasFactory;
 
     protected $fillable = [
-        'value'
-    ]
+        'value',
+    ];
 
     public function user()
     {
-        return $this->belongsTo(User::class)
+        return $this->belongsTo(User::class);
     }
 
     public function expenseCategory()
     {
-        return $this->hasOne(ExpenseCategory::class)
+        return $this->hasOne(ExpenseCategory::class);
     }
 
 }

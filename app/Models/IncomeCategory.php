@@ -16,6 +16,6 @@ class IncomeCategory extends Model
 
     public function income()
     {
-        return $this->hasMany(IncomeCategory::class);
+        return $this->hasMany(Income::class);
     }
 }

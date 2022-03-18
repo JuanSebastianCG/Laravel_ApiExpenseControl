@@ -19,7 +19,7 @@ class CreateExpensesTable extends Migration
             $table->float('value');
 
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('expense_ategory_id')->references('id')->on('expenses_categories');
+            $table->foreignId('expense_category_id')->references('id')->on('expense_categories');
 
             $table->timestamps();
         });
