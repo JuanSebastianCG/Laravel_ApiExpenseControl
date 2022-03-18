@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\IncomeCategory;
 use Illuminate\Http\Request;
+use App\Models\IncomeCategory;
+use App\Http\Requests\IncomeCategoryRequest;
 
 class IncomeCategoryController extends Controller
 {
@@ -24,7 +25,7 @@ class IncomeCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('incomesCategories.create');
     }
 
     /**
@@ -33,9 +34,13 @@ class IncomeCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(IncomeCategoryRequest $request)
     {
-        //
+        $incomeCategory = new IncomeCategory();
+        $incomeCategory->fill($request->input());
+        $incomeCategory->save();
+
+        return redirect(route(''));
     }
 
     /**
@@ -80,6 +85,6 @@ class IncomeCategoryController extends Controller
      */
     public function destroy(IncomeCategory $incomeCategory)
     {
-        //
+        $expenseCategory->delete();
     }
 }

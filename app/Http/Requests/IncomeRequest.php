@@ -24,7 +24,7 @@ class IncomeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'value' => 'required|min:0'
         ];
     }
 }

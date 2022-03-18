@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ExpenseCategory;
 use Illuminate\Http\Request;
+use App\Models\ExpenseCategory;
+use App\Http\Requests\ExpenseCategoryRequest;
 
 class ExpenseCategoryController extends Controller
 {
@@ -24,7 +25,7 @@ class ExpenseCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('expensesCategories.create');
     }
 
     /**
@@ -33,9 +34,14 @@ class ExpenseCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExpenseCategoryRequest $request)
     {
-        //
+        $expenseCategory = new ExpenseCategory();
+        $expenseCategory->fill($request->input());
+        $expenseCategory->save();
+
+        return redirect(route(''));
+
     }
 
     /**
@@ -80,6 +86,6 @@ class ExpenseCategoryController extends Controller
      */
     public function destroy(ExpenseCategory $expenseCategory)
     {
-        //
+        $expenseCategory->delete();
     }
 }

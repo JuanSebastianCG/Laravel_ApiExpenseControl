@@ -24,7 +24,7 @@ class IncomCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'categoryName' => 'required|String|min:2'
         ];
     }
 }
