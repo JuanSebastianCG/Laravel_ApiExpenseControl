@@ -24,7 +24,7 @@ class ExpenseRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'value' => 'required|min:100'
         ];
     }
 }

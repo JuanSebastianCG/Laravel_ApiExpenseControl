@@ -24,7 +24,7 @@ class IncomeCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'categoryName' => 'required|string|min:3|max:30'
         ];
     }
 }
