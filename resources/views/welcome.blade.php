@@ -11,7 +11,7 @@
             <div class="col s8 text-center">
                 <br><br><br><br>
                 <br><br><br><br>
-                
+
                 <h1 style="color: black" class="text-dark display-3 ">Lleva el control de tus gastos a otro nivel.</h1>
 
                 <br>

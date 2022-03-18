@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Income;
 use Illuminate\Http\Request;
 use App\Http\Requests\IncomeRequest;
+use Illuminate\Support\Facades\Auth;
 
 class IncomeController extends Controller
 {
@@ -25,7 +26,7 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        return view('incomes.create')
+        return view('incomes.create');
     }
 
     /**
@@ -36,7 +37,7 @@ class IncomeController extends Controller
      */
     public function store(IncomeRequest $request)
     {
-        $income = new Expense();
+        $income = new Income();
         $income->fill($request->input());
         $income->user_id = Auth::id();
         $income->income_category_id =
@@ -64,7 +65,7 @@ class IncomeController extends Controller
      */
     public function edit(Income $income)
     {
-        return view('incomes.edit', compact('income'))
+        return view('incomes.edit', compact('income'));
     }
 
     /**
@@ -76,10 +77,10 @@ class IncomeController extends Controller
      */
     public function update(IncomeRequest $request, Income $income)
     {
-        $income->fill($request->input())
-        $income->save()
+        $income->fill($request->input());
+        $income->save();
 
-        return redirect(route(''))
+        return redirect(route(''));
     }
 
     /**

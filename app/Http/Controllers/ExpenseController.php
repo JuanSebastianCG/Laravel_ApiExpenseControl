@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Expense;
 use Illuminate\Http\Request;
 use App\Http\Requests\ExpenseRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class ExpenseController extends Controller
 {
@@ -25,7 +27,7 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        return view('expenses.create')
+        return view('expenses.create');
     }
 
     /**
@@ -65,7 +67,7 @@ class ExpenseController extends Controller
      */
     public function edit(Expense $expense)
     {
-        return view('expenses.edit', compact('expense'))
+        return view('expenses.edit', compact('expense'));
     }
 
     /**
@@ -77,10 +79,10 @@ class ExpenseController extends Controller
      */
     public function update(ExpenseRequest $request, Expense $expense)
     {
-        $expense->fill($request->input())
-        $expense->save()
+        $expense->fill($request->input());
+        $expense->save();
 
-        return redirect(route(''))
+        return redirect(route(''));
     }
 
     /**

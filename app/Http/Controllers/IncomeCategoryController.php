@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\IncomeCategory;
 use App\Http\Requests\IncomeCategoryRequest;
 
+
 class IncomeCategoryController extends Controller
 {
     /**
@@ -85,6 +86,6 @@ class IncomeCategoryController extends Controller
      */
     public function destroy(IncomeCategory $incomeCategory)
     {
-        $expenseCategory->delete();
+        $incomeCategory->delete();
     }
 }

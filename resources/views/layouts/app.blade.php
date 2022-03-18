@@ -19,14 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <style>
-        body {
-            background-color: #f7ebdf;
-            color: white;
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
+    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
 
 </head>
 <body>
