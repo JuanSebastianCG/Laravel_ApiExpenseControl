@@ -19,11 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/account/{user}', App\Http\Controllers\PostController::class)->name('account')->middleware('auth');
+Route::get('/account/{user}', [App\Http\Controllers\AccountController::class, 'index'])->name('account');
 
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::resource('expenses', App\Http\Controllers\AccountController::class)->middleware('auth');
-    Route::resource('incomes', App\Http\Controllers\AccountController::class)->middleware('auth');
+    Route::resource('expenses', App\Http\Controllers\ExpenseController::class)->middleware('auth');
+    Route::resource('incomes', App\Http\Controllers\IncomeController::class)->middleware('auth');
+
+    Route::resource('expensesCategories', App\Http\Controllers\ExpenseCategoryController::class)->middleware('auth');
+    Route::resource('incomesCategories', App\Http\Controllers\IncomeCategoryController::class)->middleware('auth');
 });
+
