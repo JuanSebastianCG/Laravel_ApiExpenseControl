@@ -67,7 +67,14 @@ class IncomeController extends Controller
      */
     public function edit(Income $income)
     {
-        return view('incomes.edit', compact('income'));
+        $categories = IncomeCategory::All();
+
+        if($income->user_id==Auth::id()){
+            return view('incomes.edit', compact('categories', 'income'));
+        }
+        else{
+            return redirect(route('home'));
+        }
     }
 
     /**
@@ -82,7 +89,7 @@ class IncomeController extends Controller
         $income->fill($request->input());
         $income->save();
 
-        return redirect(route(''));
+        return redirect(route('home'));
     }
 
     /**

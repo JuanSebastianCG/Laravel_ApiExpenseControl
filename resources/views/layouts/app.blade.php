@@ -21,6 +21,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
+<<<<<<< HEAD
+=======
+
+>>>>>>> eb2d36c9b6be2be489e62e3e439da5e268dd84a2
 
 
 </head>
@@ -60,6 +64,8 @@
                                     Movimientos
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a style="color: black" class="nav-link" href="{{ route('incomes.create')}}">    Registrar ingreso</a>
+                                    <a style="color: black" class="nav-link" href="{{ route('expenses.create')}}">    Registrar egreso</a>
                                     <a style="color: black" class="nav-link" href="{{ route('home')}}">    Ver movimientos</a>
                                     <a style="color: black" class="nav-link" href="">    Ver gráficas</a>
                                 </div>
