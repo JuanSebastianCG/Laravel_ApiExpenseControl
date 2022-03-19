@@ -84,7 +84,7 @@ class ExpenseController extends Controller
         $expense->fill($request->input());
         $expense->save();
 
-        return redirect(route(''));
+        return redirect(route('home'));
     }
 
     /**
