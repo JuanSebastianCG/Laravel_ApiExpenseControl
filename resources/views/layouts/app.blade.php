@@ -21,11 +21,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
-<<<<<<< HEAD
-=======
-
->>>>>>> eb2d36c9b6be2be489e62e3e439da5e268dd84a2
-
 
 </head>
 <body>
