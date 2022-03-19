@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container">
-
         <div class="row">
             <div class="col s4 text-center">
                 <img src="https://cdn.pixabay.com/photo/2020/04/24/06/46/piggy-money-bank-5085515_1280.png" class="img-fluid rounded" alt="..." width="400px" height="200px">

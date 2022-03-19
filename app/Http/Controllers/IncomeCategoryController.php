@@ -26,7 +26,7 @@ class IncomeCategoryController extends Controller
      */
     public function create()
     {
-        return view('incomesCategories.create');
+        return view('incomes-categories.create');
     }
 
     /**
@@ -41,7 +41,7 @@ class IncomeCategoryController extends Controller
         $incomeCategory->fill($request->input());
         $incomeCategory->save();
 
-        return redirect(route(''));
+        return redirect(route('welcome'));
     }
 
     /**

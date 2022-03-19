@@ -8,12 +8,6 @@ use App\Models\ExpenseCategory;
 use App\Http\Requests\ExpenseCategoryRequest;
 use Illuminate\Support\Facades\Auth;
 
-
-
-
-
-
-
 class ExpenseCategoryController extends Controller
 {
     /**
@@ -33,7 +27,7 @@ class ExpenseCategoryController extends Controller
      */
     public function create()
     {
-        return view('expensesCategories.create');
+        return view('expenses-categories.create');
     }
 
     /**
@@ -48,7 +42,7 @@ class ExpenseCategoryController extends Controller
         $expenseCategory->fill($request->input());
         $expenseCategory->save();
 
-        return redirect(route(''));
+        return redirect(route('welcome'));
 
     }
 
