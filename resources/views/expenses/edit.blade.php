@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -14,20 +15,21 @@
             <br><br><br>
             <div class="row text-center">
                 <h3 style="color: black" class="text-dark display-4 ">
-                    Crear un ingreso.
+                    Editar un egreso.
                 </h3>
             </div>
 
             <br>
 
             {{-- Form --}}
-            {!! Form::open(['route' => 'incomes.store', 'method'=>'post']) !!}
-                <form>
-                    @include('expenses.subview-movements-fields')
-                    <center>
-                        <button type="submit" class="btn btn-success btn-lg">   Crear   </button>
-                    </center>
-                </form>
+            {!! Form::model($expense, ['method' => 'PUT', 'route' => ['expenses.update', $expense -> id]]) !!}
+
+            @include('expenses.subview-movements-fields')
+
+            <center>
+                <button type="submit" class="btn btn-success btn-lg">   Editar   </button>
+            </center>
+
             {!! Form::close() !!}
 
 

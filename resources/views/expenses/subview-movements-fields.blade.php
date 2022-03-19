@@ -14,7 +14,5 @@
             @endforelse
         </select>
     </div>
-    <center>
-        <button type="submit" class="btn btn-success btn-lg">   Crear   </button>
-    </center>
+    
 </div>
