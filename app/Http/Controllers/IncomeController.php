@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Income;
+use App\Models\IncomeCategory;
 use Illuminate\Http\Request;
 use App\Http\Requests\IncomeRequest;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,8 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        return view('incomes.create');
+        $categories = IncomeCategory::All();
+        return view('incomes.create', compact('categories'));
     }
 
     /**
@@ -40,10 +42,10 @@ class IncomeController extends Controller
         $income = new Income();
         $income->fill($request->input());
         $income->user_id = Auth::id();
-        $income->income_category_id =
+        $income->income_category_id = $request->get('expense_category_id');
         $income->save();
 
-        return redirect(route(''));
+        return redirect(route('welcome'));
     }
 
     /**

@@ -18,11 +18,13 @@
                     <form>
                         @include('incomes-categories.subview-category-fields')
                         <div class="container">
-                            <button type="submit" class="btn btn-success btn-lg ">   Crear   </button>
+                            <center>
+                                <button type="submit" class="btn btn-success btn-lg ">   Crear   </button>
+                            </center>
                         </div>
                     </form>
                 {!! Form::close() !!}
-                
+
             </div>
 
             <div class="col s4 text-center">

@@ -6,6 +6,7 @@ use App\Models\Expense;
 use Illuminate\Http\Request;
 use App\Http\Requests\ExpenseRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\ExpenseCategory;
 
 
 class ExpenseController extends Controller
@@ -27,7 +28,8 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        return view('expenses.create');
+        $categories = ExpenseCategory::All();
+        return view('expenses.create', compact('categories'));
     }
 
     /**
@@ -41,11 +43,11 @@ class ExpenseController extends Controller
         $expense = new Expense();
         $expense->fill($request->input());
         $expense->user_id = Auth::id();
-        $expense->expense_category_id =
+
+        $expense->expense_category_id = $request->get('expense_category_id');
         $expense->save();
 
-        return redirect(route(''));
-
+        return redirect(route('welcome'));
     }
 
     /**
