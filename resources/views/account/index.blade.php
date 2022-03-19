@@ -9,7 +9,6 @@
     <h4 >Usuario {{ $user->name}}</h4>
     <div class="container">
     <!-- fecha -->
-    {!! Form::date('name', \Carbon\Carbon::now()->format('D/M/Y'), ['class' => 'form-control', 'required' => true]) !!}
     <label for="start">fecha de incial:</label>
         <input type="date" id="start" name="trip-start"
         value="2018-07-22"
