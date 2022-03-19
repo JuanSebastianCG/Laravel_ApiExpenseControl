@@ -43,13 +43,13 @@ class User extends Authenticatable
     ];
 
 
-    public function income()
+    public function incomes()
     {
-        return $this->hasMany(IncomeController::class);
+        return $this->hasMany(Income::class);
     }
 
-    public function expense()
+    public function expenses()
     {
-        return $this->hasMany(ExpenseController::class);
+        return $this->hasMany(Expense::class);
     }
 }
