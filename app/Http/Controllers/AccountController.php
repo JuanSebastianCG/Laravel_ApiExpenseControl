@@ -57,6 +57,8 @@ class AccountController extends Controller
 
        return view('account.index', compact('collections', 'user'));
     }
+
+
     public function limitDate($collection){
          dd($collection);
 

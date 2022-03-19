@@ -34,8 +34,6 @@
     <span>Categoria</span>
     <select style="width: 200px" class="category" id="category">
         <option value="0" disabled="true" selected="true">-Todos-</option>
-
-
     </select>
 
     @forelse($collections as $collection)
