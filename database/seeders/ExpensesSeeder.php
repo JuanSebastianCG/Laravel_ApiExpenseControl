@@ -33,7 +33,7 @@ class ExpensesSeeder extends Seeder
 
         $p = new Expense();
         $p->value = 6000;
-        $p->user_id = 1;
+        $p->user_id = 2;
         $p->expense_category_id = 1;
         $p->created_at = date("2022-03-18 01:52:43");
         $p->save();

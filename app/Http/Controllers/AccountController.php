@@ -3,14 +3,37 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 use App\Models\Expense;
-use App\Models\income;
+use App\Models\Income;
 use App\Models\User;
+use App\Models\IncomeCategory;
+use App\Models\ExpenseCategory;
 
 
 class AccountController extends Controller
 {
+
+
+
+    public function findCategory(Request $request){
+
+
+        if ($request->id === "1") {
+            $data=IncomeCategory::all();
+
+        }elseif ($request->id === "2") {
+            $data=ExpenseCategory::all();
+
+        }else{
+            $data=null;
+        }
+
+        return response()->json($data);
+
+
+	}
     /**
      * Display a listing of the resource.
      *
@@ -18,87 +41,34 @@ class AccountController extends Controller
      */
     public function index(User $user)
     {
-        $incomess = $user->incomes()
+        $incomes = $user->incomes()
         ->orderBy('created_at', 'desc')->get();
         ;
 
-        $expensess = $user->expenses()
+        $expenses = $user->expenses()
         ->orderBy('created_at', 'desc')->get();
         ;
 
-        $expenses[]= (array) $expensess;
-        $incomes[]= (array) $incomess;
+        $collections=collect(array_merge($incomes->all(),$expenses->all()))->sortByDesc('created_at');
+
+        //$this->limitDate($collections);
+
+        //$collections = $incomess->merge($expensess)->sortByDesc('user_id');
+
+       return view('account.index', compact('collections', 'user'));
+    }
+    public function limitDate($collection){
+         dd($collection);
 
 
-        dd($expenses[1]->value);
-      //  return view('account.index', compact('incomes', 'expenses', 'user'));
+
     }
 
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
