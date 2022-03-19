@@ -31,3 +31,4 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('incomesCategories', App\Http\Controllers\IncomeCategoryController::class);
 });
 
+Route::get('/findProductName', [App\Http\Controllers\AccountController::class, 'findCategory']);

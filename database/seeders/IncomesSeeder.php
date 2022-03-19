@@ -36,7 +36,7 @@ class IncomesSeeder extends Seeder
 
         $p = new Income();
         $p->value = 5000;
-        $p->user_id = 1;
+        $p->user_id = 2;
         $p->income_category_id = 1;
         $p->created_at = date("2022-03-19 01:52:43");
 
