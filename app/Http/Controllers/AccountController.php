@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Expense;
+use App\Models\income;
+use App\Models\User;
+
 
 class AccountController extends Controller
 {
@@ -11,10 +16,25 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        //
+        $incomess = $user->incomes()
+        ->orderBy('created_at', 'desc')->get();
+        ;
+
+        $expensess = $user->expenses()
+        ->orderBy('created_at', 'desc')->get();
+        ;
+
+        $expenses[]= (array) $expensess;
+        $incomes[]= (array) $incomess;
+
+
+        dd($expenses[1]->value);
+      //  return view('account.index', compact('incomes', 'expenses', 'user'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
