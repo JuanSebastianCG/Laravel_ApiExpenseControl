@@ -20,7 +20,7 @@ class Expense extends Model
 
     public function expenseCategory()
     {
-        return $this->hasOne(ExpenseCategory::class);
+        return $this->belongsTo(ExpenseCategory::class);
     }
 
 }

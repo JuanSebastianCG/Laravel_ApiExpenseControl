@@ -22,8 +22,8 @@ Route::get('/account/{user}', [App\Http\Controllers\AccountController::class, 'i
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    
+    Route::get('/home', [App\Http\Controllers\AccountController::class, 'index'])->name('home');
+
     Route::resource('expenses', App\Http\Controllers\ExpenseController::class);
     Route::resource('incomes', App\Http\Controllers\IncomeController::class);
 
@@ -31,4 +31,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('incomesCategories', App\Http\Controllers\IncomeCategoryController::class);
 });
 
-Route::get('/findProductName', [App\Http\Controllers\AccountController::class, 'findCategory']);
+
+Route::get('/findCategories', [App\Http\Controllers\AccountController::class, 'findCategories'])->name('findCategories');
+

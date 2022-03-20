@@ -20,6 +20,6 @@ class Income extends Model
 
     public function incomeCategory()
     {
-        return $this->hasOne(IncomeCategory::class);
+        return $this->belongsTo(IncomeCategory::class);
     }
 }

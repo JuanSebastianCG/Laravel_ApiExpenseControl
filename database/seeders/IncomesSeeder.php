@@ -29,7 +29,7 @@ class IncomesSeeder extends Seeder
         $p = new Income();
         $p->value = 2000;
         $p->user_id = 1;
-        $p->income_category_id = 1;
+        $p->income_category_id = 2;
         $p->created_at = date("2022-03-17 01:52:43");
 
         $p->save();
@@ -37,7 +37,7 @@ class IncomesSeeder extends Seeder
         $p = new Income();
         $p->value = 5000;
         $p->user_id = 2;
-        $p->income_category_id = 1;
+        $p->income_category_id = 2;
         $p->created_at = date("2022-03-19 01:52:43");
 
         $p->save();

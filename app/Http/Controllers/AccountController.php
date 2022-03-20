@@ -10,63 +10,73 @@ use App\Models\Income;
 use App\Models\User;
 use App\Models\IncomeCategory;
 use App\Models\ExpenseCategory;
+use Carbon\Carbon;
+
 
 
 class AccountController extends Controller
 {
-
-
-
-    public function findCategory(Request $request){
-
-
-        if ($request->id === "1") {
-            $data=IncomeCategory::all();
-
-        }elseif ($request->id === "2") {
-            $data=ExpenseCategory::all();
-
-        }else{
-            $data=null;
-        }
-
-        return response()->json($data);
-
-
-	}
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(User $user)
+    public function index(Request $request)
     {
-        $incomes = $user->incomes()
-        ->orderBy('created_at', 'desc')->get();
-        ;
 
+        $user = Auth::user();
         $expenses = $user->expenses()
         ->orderBy('created_at', 'desc')->get();
-        ;
 
-        $collections=collect(array_merge($incomes->all(),$expenses->all()))->sortByDesc('created_at');
-
-        //$this->limitDate($collections);
-
-        //$collections = $incomess->merge($expensess)->sortByDesc('user_id');
-
-       return view('account.index', compact('collections', 'user'));
-    }
-    public function limitDate($collection){
-         dd($collection);
+        $incomes = $user->incomes()
+        ->orderBy('created_at', 'desc')->get();
 
 
+        $vista = $request->get('status_view');
+        $category = $request->get('category');
 
-    }
+        $userDate = date($user->get('created_at'));
+        $startDate = date($request->get('startDate'));
+        $endDate = date($request->get('endDate'));
+
+        $incomeCategory = IncomeCategory::all();
+        $expenseCategory = ExpenseCategory::all();
+
+        if ($vista) {
+            if ($vista === "1") {
+                $collections = $incomes;
+                if ($category) {
+                    $collections = $incomes->where('income_category_id',  "$category");
+                }
+
+            }elseif ($vista === "2") {
+                $collections = $expenses;
+                if ($category) {
+                    $collections = $incomes->where('income_category_id',  "$category");
+                }
+            }
+
+        }else {
+            $collections=collect(array_merge($incomes->all(),$expenses->all()))->sortByDesc('created_at');
+        }
+
+        if ($startDate &&  $endDate) {
+
+           $collections = $collections->whereBetween('created_at', [$startDate, $endDate]);
+        }
+
+       return   view('account.index', compact('collections', 'user', 'userDate'));
+
+}
 
 
 
+    public function findCategories(Request $request){
 
+        $data =  NULL;
+		if ($request->id === "1") {
+            $data = IncomeCategory::all();
+        }else if ($request->id === "2") {
+            $data = ExpenseCategory::all();
+        }
+
+    	return response()->json($data);
+	}
 
 
 

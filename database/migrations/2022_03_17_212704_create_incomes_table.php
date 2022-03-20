@@ -18,7 +18,7 @@ class CreateIncomesTable extends Migration
             $table->float('value');
 
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('income_category_id')->references('id')->on('users');
+            $table->foreignId('income_category_id')->references('id')->on('income_categories');
 
             $table->timestamps();
         });
