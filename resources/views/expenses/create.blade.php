@@ -24,7 +24,11 @@
             {!! Form::open(['route' => 'expenses.store', 'method'=>'post']) !!}
                 <form>
                     @include('expenses.subview-movements-fields')
+                    <center>
+                        <button type="submit" class="btn btn-success btn-lg">   Crear   </button>
+                    </center>
                 </form>
+
             {!! Form::close() !!}
 
 

@@ -22,10 +22,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
 
-    <!-- flatpikr -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
     <!-- select  -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -66,6 +62,8 @@
                                     Movimientos
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a style="color: black" class="nav-link" href="{{ route('incomes.create')}}">    Registrar ingreso</a>
+                                    <a style="color: black" class="nav-link" href="{{ route('expenses.create')}}">    Registrar egreso</a>
                                     <a style="color: black" class="nav-link" href="{{ route('home')}}">    Ver movimientos</a>
                                     <a style="color: black" class="nav-link" href="">    Ver gráficas</a>
                                 </div>

@@ -69,7 +69,15 @@ class ExpenseController extends Controller
      */
     public function edit(Expense $expense)
     {
-        return view('expenses.edit', compact('expense'));
+        $categories = ExpenseCategory::All();
+
+        if($expense->user_id==Auth::id()){
+            return view('expenses.edit', compact('categories', 'expense'));
+        }
+        else{
+            return redirect(route('home'));
+        }
+
     }
 
     /**
