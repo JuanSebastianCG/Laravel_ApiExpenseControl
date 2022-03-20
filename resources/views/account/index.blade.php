@@ -9,6 +9,7 @@
 @include('layouts.subview-form-errors')
     <!-- vista -->
     <h4 >Usuario {{ $user->name}}</h4>
+    <h4 >Usuario {{ $salary}}</h4>
     <div class="container">
     <!-- campos -->
 
@@ -16,8 +17,8 @@
             <div class="container-fluid">
                 <form class="d-flex" >
 
-                    <input min="{{date('Y-m-d',$user->created_at)}}" max="{{ date('Y-m-d') }}" name="startDate" id="startDate" type="date" class="form-control" placeholder="fecha de inicio" value="{{date('Y-m-d',$user->created_at)}}"/>
-                    <input min="{{date('Y-m-d',$user->created_at)}}" max="{{ date('Y-m-d') }}" name="endDate" id="endDate" type="date" class="form-control" placeholder="fecha de finalizacion" value="{{ date('Y-m-d') }}"/>
+                    <input min="{{date('Y-m-d',strtotime($user->created_at))}}" max="{{ date('Y-m-d') }}" name="startDate" id="startDate" type="date" class="form-control" placeholder="fecha de inicio" value="{{date('Y-m-d',strtotime($user->created_at))}}"/>
+                    <input min="{{date('Y-m-d',strtotime($user->created_at))}}" max="{{ date('Y-m-d') }}" name="endDate" id="endDate" type="date" class="form-control" placeholder="fecha de finalizacion" value="{{ date('Y-m-d') }}"/>
 
                     <select class="form-control status_id" id="movement" name="status_view">
                     <option value="0" >-Ingresos y Gastos-</option>

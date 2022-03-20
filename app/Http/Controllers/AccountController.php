@@ -30,7 +30,6 @@ class AccountController extends Controller
         $vista = $request->get('status_view');
         $category = $request->get('category');
 
-        $userDate = date($user->get('created_at'));
         $startDate = date($request->get('startDate'));
         $endDate = date($request->get('endDate'));
 
@@ -60,10 +59,30 @@ class AccountController extends Controller
            $collections = $collections->whereBetween('created_at', [$startDate, $endDate]);
         }
 
-       return   view('account.index', compact('collections', 'user', 'userDate'));
+        $salary = $this->totalSalary($collections);
+
+       return   view('account.index', compact('collections', 'user', 'salary'));
 
 }
 
+
+    public function totalSalary($collections){
+        $salary = 0;
+
+        foreach($collections as $c)
+        {
+          if($c instanceof Income){
+
+            $salary += $c->value;
+
+          }elseif($c instanceof Expense){
+
+            $salary -= $c->value;
+
+          }
+        }
+        return $salary;
+    }
 
 
     public function findCategories(Request $request){
