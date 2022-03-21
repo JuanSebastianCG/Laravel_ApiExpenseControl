@@ -103,7 +103,7 @@ class AccountController extends Controller
     public function edit(User $user)
     {
 
-        if($user->id== Auth::id()){
+        if($user = Auth()->user()){
             return view('auth.edit', compact('user'));
         }
         else{
@@ -120,7 +120,7 @@ class AccountController extends Controller
      */
     public function update(UserRequest $request, User $User)
     {
-        $user = Auth()::user();
+        $user = Auth()->user();
         $user->fill($request->input());
         $user->save();
 
