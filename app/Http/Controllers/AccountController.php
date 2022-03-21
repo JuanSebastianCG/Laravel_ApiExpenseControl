@@ -99,6 +99,22 @@ class AccountController extends Controller
 	}
 
 
+    public function edit()
+    {
+        $user = Auth()->User();
+        return view('home', compact('user'));
+    }
 
+
+    public function update(UserRequest $request)
+    {
+
+    }
+
+
+    public function destroy()
+    {
+
+    }
 
 }
