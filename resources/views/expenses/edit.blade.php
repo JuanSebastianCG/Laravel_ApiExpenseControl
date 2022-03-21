@@ -22,12 +22,12 @@
             <br>
 
             {{-- Form --}}
-            {!! Form::model($expense, ['method' => 'PUT', 'route' => ['expenses.update', $expense -> id]]) !!}
+            {!! Form::mod el($expense, ['method' => 'PUT', 'route' => ['expenses.update', $expense -> id]]) !!}
 
             @include('expenses.subview-movements-fields')
 
             <center>
-                <button type="submit" class="btn btn-success btn-lg">   Editar   </button>
+                <button type="submit" class="btn btn-success btn-lg">   Guardar cambios   </button>
             </center>
 
             {!! Form::close() !!}

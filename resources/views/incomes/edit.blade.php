@@ -26,7 +26,7 @@
             @include('expenses.subview-movements-fields')
 
             <center>
-                <button type="submit" class="btn btn-success btn-lg">   Editar   </button>
+                <button type="submit" class="btn btn-success btn-lg">   Guardar cambios  </button>
             </center>
 
             {!! Form::close() !!}
