@@ -130,6 +130,14 @@ class AccountController extends Controller
 
     public function destroy()
     {
+        if($user = Auth()->user()){
+            $user->delete();
+            return redirect(route('welcome'));
+        }
+        else{
+            return redirect(route('home'));
+        }
+
 
     }
 
