@@ -26,7 +26,6 @@ class AccountController extends Controller
         $incomes = $user->incomes()
         ->orderBy('created_at', 'desc')->get();
 
-        /* egreso o ingreso */
         $vista = $request->get('status_view');
         /* categoria */
         $category = $request->get('category');
@@ -60,9 +59,11 @@ class AccountController extends Controller
            $collections = $collections->whereBetween('created_at', [$startDate, $endDate]);
         }
 
+        $SumIncomes = $this->totalSalary($incomes);
+        $SumExpenses = $this->totalSalary($expenses);
         $salary = $this->totalSalary($collections);
 
-       return   view('account.index', compact('collections', 'user', 'salary'));
+       return   view('account.index', compact('collections', 'user', 'salary', 'SumIncomes', 'SumExpenses'));
 
 }
 
