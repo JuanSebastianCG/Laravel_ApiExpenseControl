@@ -27,7 +27,6 @@ class AccountController extends Controller
         ->orderBy('created_at', 'desc')->get();
 
         $vista = $request->get('status_view');
-        /* categoria */
         $category = $request->get('category');
 
         $startDate = date($request->get('startDate'));
