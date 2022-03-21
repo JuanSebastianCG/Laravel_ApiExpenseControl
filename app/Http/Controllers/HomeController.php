@@ -26,16 +26,6 @@ class HomeController extends Controller
     {
         $user = Auth()->user();
 
-        $incomes = $user->incomes()
-        ->orderBy('created_at', 'desc')->get();
-        ;
-
-        $expenses = $user->expenses()
-        ->orderBy('created_at', 'desc')->get();
-        ;
-
-        $collections=collect(array_merge($incomes->all(),$expenses->all()))->sortByDesc('created_at');
-
-        return view('home', compact('collections', 'user'));
+        return view('home', compact('user'));
     }
 }
