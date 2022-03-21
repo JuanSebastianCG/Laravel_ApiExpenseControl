@@ -66,7 +66,7 @@
                                     <a style="color: black" class="nav-link" href="{{ route('incomes.create')}}">    Registrar ingreso</a>
                                     <a style="color: black" class="nav-link" href="{{ route('expenses.create')}}">    Registrar egreso</a>
                                     <a style="color: black" class="nav-link" href="{{ route('account', $user = Auth()->user()) }}">    Ver movimientos</a>
-                                    <a style="color: black" class="nav-link" href="">    Ver gráficas</a>
+                                    <a style="color: black" class="nav-link" href="{{ route('graphics', $user = Auth()->user())}}">    Ver gráficas</a>
                                 </div>
                             </li>
                                 <li class="nav-item dropdown mx-2">
