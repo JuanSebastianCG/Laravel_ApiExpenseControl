@@ -21,6 +21,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::get('/account/{user}', [App\Http\Controllers\AccountController::class, 'index'])->name('account');
+    Route::resource('account', App\Http\Controllers\AccountController::class);
+
     Route::get('/graphics/{user}', [App\Http\Controllers\GraphicsController::class, 'index'])->name('graphics');
 
     Route::resource('expenses', App\Http\Controllers\ExpenseController::class);
