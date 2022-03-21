@@ -40,6 +40,7 @@ class ExpenseController extends Controller
      */
     public function store(ExpenseRequest $request)
     {
+        $user = Auth::user();
         $expense = new Expense();
         $expense->fill($request->input());
         $expense->user_id = Auth::id();
@@ -47,7 +48,7 @@ class ExpenseController extends Controller
         $expense->expense_category_id = $request->get('expense_category_id');
         $expense->save();
 
-        return redirect(route('welcome'));
+        return redirect(route('account',$user->id));
     }
 
     /**
@@ -89,10 +90,11 @@ class ExpenseController extends Controller
      */
     public function update(ExpenseRequest $request, Expense $expense)
     {
+        $user = Auth::user();
         $expense->fill($request->input());
         $expense->save();
 
-        return redirect(route('home'));
+        return redirect(route('account',$user->id));
     }
 
     /**
@@ -103,6 +105,9 @@ class ExpenseController extends Controller
      */
     public function destroy(Expense $expense)
     {
+        $user = Auth::user();
         $expense->delete();
+
+        return redirect(route('account',$user->id));
     }
 }

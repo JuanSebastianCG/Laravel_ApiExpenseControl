@@ -39,13 +39,14 @@ class IncomeController extends Controller
      */
     public function store(IncomeRequest $request)
     {
+        $user = Auth::user();
         $income = new Income();
         $income->fill($request->input());
         $income->user_id = Auth::id();
         $income->income_category_id = $request->get('expense_category_id');
         $income->save();
 
-        return redirect(route('welcome'));
+        return redirect(route('account',$user->id));
     }
 
     /**
@@ -86,10 +87,11 @@ class IncomeController extends Controller
      */
     public function update(IncomeRequest $request, Income $income)
     {
+        $user = Auth::user();
         $income->fill($request->input());
         $income->save();
 
-        return redirect(route('home'));
+        return redirect(route('account',$user->id));
     }
 
     /**
@@ -100,6 +102,9 @@ class IncomeController extends Controller
      */
     public function destroy(Income $income)
     {
+        $user = AUTH::user();
         $income->delete();
+
+        return redirect(route('account',$user->id));
     }
 }
