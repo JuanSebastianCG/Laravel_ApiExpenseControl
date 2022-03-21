@@ -5,7 +5,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-6">
                 <h3 style="color: black" class="text-dark display-6 ">
                     {{ $user-> name }}
                 </h3>

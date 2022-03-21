@@ -54,7 +54,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item mx-2">
-                                    <a type="button" class="btn btn-success" href="{{ route('register') }}">{{ __('Registrase') }}</a>
+                                    <a type="button" class="btn btn-success" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
                             @endif
                         @else
@@ -87,7 +87,7 @@
                                     </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a style="color: black" class="nav-link" href="{{ route('account.edit', $user = Auth()->user()) }}">    Editar Perfil</a>
+                                    <a style="color: black" class="dropdown-item" href="{{ route('account.edit', $user = Auth()->user()) }}">    Editar Perfil</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
