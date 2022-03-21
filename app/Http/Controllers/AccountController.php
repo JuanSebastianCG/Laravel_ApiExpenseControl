@@ -26,8 +26,9 @@ class AccountController extends Controller
         $incomes = $user->incomes()
         ->orderBy('created_at', 'desc')->get();
 
-
+        /* egreso o ingreso */
         $vista = $request->get('status_view');
+        /* categoria */
         $category = $request->get('category');
 
         $startDate = date($request->get('startDate'));
