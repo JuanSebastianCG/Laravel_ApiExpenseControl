@@ -62,7 +62,7 @@ class AccountController extends Controller
         $SumExpenses = $this->totalSalary($expenses);
         $salary = $this->totalSalary($collections);
 
-       return   view('account.index', compact('collections', 'user', 'salary', 'SumIncomes', 'SumExpenses'));
+       return   view('account.index', compact('collections', 'user', 'salary', 'SumIncomes', 'SumExpenses', 'incomeCategory', 'expenseCategory'));
 
 }
 

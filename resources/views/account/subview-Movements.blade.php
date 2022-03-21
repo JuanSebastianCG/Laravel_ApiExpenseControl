@@ -6,12 +6,28 @@
                     @if($collection instanceof App\Models\Income)
                         <h4 class="card-subtitle mb-2 text-muted">Ingresos</h6>
 
-                            <p class="card-text">{{ $collection->income_category_id }}</p>
+                        @foreach ($incomeCategory as $income)
+                            @if ($income->id == $collection->income_category_id)
+                                <p class="card-text">Categoría: {{ $income->categoryName }}</p>
+                                <p class="card-text h5" style="color: rgb(3, 163, 3)">Valor: ${{ $collection->value }}</p>
+                                <br>
+                            @endif
+                        @endforeach
+
+
                     @elseif($collection instanceof App\Models\Expense)
                         <h4 class="card-subtitle mb-2 text-muted">Gastos</h6>
-                            <p class="card-text">{{ $collection->expense_category_id }}</p>
+
+                        @foreach ($expenseCategory as $expense)
+                            @if ($expense->id == $collection->expense_category_id)
+                                <p class="card-text">Categoría: {{ $expense->categoryName }}</p>
+                                <p class="card-text h5" style="color: rgb(192, 43, 6)">Valor: ${{ $collection->value }}</p>
+                                <br>
+                            @endif
+                        @endforeach
+
                     @endif
-                    <p class="card-text">Valor: ${{ $collection->value }}</p>
+
                     <h6 class="card-subtitle mb-2 text-muted">{{ $collection->created_at}}</h6>
                 </div>
 
