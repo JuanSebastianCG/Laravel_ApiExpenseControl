@@ -65,6 +65,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a style="color: black" class="nav-link" href="{{ route('incomesCategories.create')}}">  Crear categoría de Ingreso </a>
                                 <a style="color: black" class="nav-link" href="{{ route('expensesCategories.create')}}">  Crear categoría de Egreso </a>
+                                <a style="color: black" class="nav-link" href="{{ route('incomesCategories.index')}}">  Ver categorias de ingresos </a>
                             </div>
 
                         </li>
