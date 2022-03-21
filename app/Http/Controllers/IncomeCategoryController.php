@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\IncomeCategory;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\IncomeCategoryRequest;
 
 
@@ -16,7 +17,10 @@ class IncomeCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $incomesCategories = IncomeCategory::all();
+
+        return view('incomes-categories.index', compact('incomesCategories', 'user'));
     }
 
     /**
@@ -63,7 +67,12 @@ class IncomeCategoryController extends Controller
      */
     public function edit(IncomeCategory $incomeCategory)
     {
-        //
+        $user = Auth::user();
+        /* if ($user->user_id === 1 || $user->user_id === 2) { */
+            return view('incomes-categories.edit', compact('incomeCategory'));
+        /* }else {
+            return redirect(route('account', $user));
+        } */
     }
 
     /**
@@ -73,9 +82,13 @@ class IncomeCategoryController extends Controller
      * @param  \App\Models\IncomeCategory  $incomeCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, IncomeCategory $incomeCategory)
+    public function update(IncomeCategoryRequest $request, IncomeCategory $incomeCategory)
     {
-        //
+        $user = Auth::user();
+        $incomeCategory->fill($request->input());
+        $incomeCategory->save();
+
+        return redirect(route('incomesCategories.index'));
     }
 
     /**
@@ -87,5 +100,6 @@ class IncomeCategoryController extends Controller
     public function destroy(IncomeCategory $incomeCategory)
     {
         $incomeCategory->delete();
+        return redirect(route('incomesCategories.index'));
     }
 }
