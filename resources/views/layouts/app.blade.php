@@ -101,7 +101,8 @@
     <footer class="text-center text-lg-start bg-light text-muted">
         <!-- Right -->
         <div>
-            <a href="" class="me-4 text-reset">
+            <br>
+            {{-- <a href="" class="me-4 text-reset">
             <i class="fab fa-facebook-f"></i>
             </a>
             <a href="" class="me-4 text-reset">
@@ -118,7 +119,7 @@
             </a>
             <a href="" class="me-4 text-reset">
             <i class="fab fa-github"></i>
-            </a>
+            </a> --}}
         </div>
         <!-- Section: Social media -->
 
