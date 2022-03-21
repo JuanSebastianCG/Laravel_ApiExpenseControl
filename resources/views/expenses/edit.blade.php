@@ -22,7 +22,7 @@
             <br>
 
             {{-- Form --}}
-            {!! Form::mod el($expense, ['method' => 'PUT', 'route' => ['expenses.update', $expense -> id]]) !!}
+            {!! Form::model($expense, ['method' => 'PUT', 'route' => ['expenses.update', $expense -> id]]) !!}
 
             @include('expenses.subview-movements-fields')
 

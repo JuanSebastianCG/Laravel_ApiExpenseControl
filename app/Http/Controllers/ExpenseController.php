@@ -92,6 +92,7 @@ class ExpenseController extends Controller
     {
         $user = Auth::user();
         $expense->fill($request->input());
+        $expense->expense_category_id = $request->get('expense_category_id');
         $expense->save();
 
         return redirect(route('account',$user->id));

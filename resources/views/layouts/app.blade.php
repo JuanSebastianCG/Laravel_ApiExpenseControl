@@ -58,6 +58,17 @@
                                 </li>
                             @endif
                         @else
+                        <li class="nav-item dropdown mx-2">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Categorías
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a style="color: black" class="nav-link" href="{{ route('incomesCategories.create')}}">  Crear categoría de Ingreso </a>
+                                <a style="color: black" class="nav-link" href="{{ route('expensesCategories.create')}}">  Crear categoría de Egreso </a>
+                            </div>
+
+                        </li>
+
                             <li class="nav-item dropdown mx-2">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Movimientos
@@ -68,6 +79,7 @@
                                     <a style="color: black" class="nav-link" href="{{ route('account', $user = Auth()->user()) }}">    Ver movimientos</a>
                                     <a style="color: black" class="nav-link" href="{{ route('graphics', $user = Auth()->user())}}">    Ver gráficas</a>
                                 </div>
+
                             </li>
                                 <li class="nav-item dropdown mx-2">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

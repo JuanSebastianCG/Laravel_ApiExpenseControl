@@ -4,11 +4,14 @@
     <div class="container">
         <div class="row">
             <div class="col s8">
-                <br><br><br><br><br><br><br>
+                <br><br><br><br><br>
 
                 <div class="row text-center">
                     <h3 style="color: black" class="text-dark display-4 ">
-                        Crear una categoría.
+                        Crear una
+                    </h3>
+                    <h3 style="color: black" class="text-dark display-4 ">
+                        categoría de ingresos.
                     </h3>
                 </div>
 

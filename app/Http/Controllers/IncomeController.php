@@ -89,6 +89,7 @@ class IncomeController extends Controller
     {
         $user = Auth::user();
         $income->fill($request->input());
+        $income->income_category_id = $request->get('expense_category_id');
         $income->save();
 
         return redirect(route('account',$user->id));

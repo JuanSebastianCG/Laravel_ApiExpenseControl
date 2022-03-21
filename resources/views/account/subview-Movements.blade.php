@@ -5,8 +5,11 @@
                 <div class="col-10">
                     @if($collection instanceof App\Models\Income)
                         <h4 class="card-subtitle mb-2 text-muted">Ingresos</h6>
+
+                            <p class="card-text">{{ $collection->income_category_id }}</p>
                     @elseif($collection instanceof App\Models\Expense)
                         <h4 class="card-subtitle mb-2 text-muted">Gastos</h6>
+                            <p class="card-text">{{ $collection->expense_category_id }}</p>
                     @endif
                     <p class="card-text">Valor: ${{ $collection->value }}</p>
                     <h6 class="card-subtitle mb-2 text-muted">{{ $collection->created_at}}</h6>

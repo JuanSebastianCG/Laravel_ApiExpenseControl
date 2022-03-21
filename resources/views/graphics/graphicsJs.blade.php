@@ -90,6 +90,7 @@ var myChart = new Chart(ctx, {
 });
 
  }
+
  function expenseGraph(expenseCategory, expense) {
 
 var ctx = document.getElementById("expenseDiv").getContext('2d');
@@ -100,7 +101,7 @@ var myChart = new Chart(ctx, {
         labels: expenseCategory,
         datasets: [{
             label: 'categarias de ingresos',
-            data: income ,
+            data: expense ,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
