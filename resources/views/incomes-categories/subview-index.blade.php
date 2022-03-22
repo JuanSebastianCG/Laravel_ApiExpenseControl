@@ -10,7 +10,7 @@
                     </div>
 
                     <div class="col-1 ">
-                        <a href="{{ route('incomesCategories.edit', $incomeCategory->id) }}" class = "btn btn-info" title="Editar Categoria">
+                        <a href="{{ route('incomesCategories.edit', $incomeCategory->) }}" class = "btn btn-info" title="Editar Categoria">
                             <i class="fa-solid fa-pen-to-square" ></i>
                         </a>
                     </div>

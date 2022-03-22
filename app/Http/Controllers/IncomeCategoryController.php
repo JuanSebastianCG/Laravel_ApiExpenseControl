@@ -69,6 +69,7 @@ class IncomeCategoryController extends Controller
     {
         $user = Auth::user();
         /* if ($user->user_id === 1 || $user->user_id === 2) { */
+            return($incomeCategory);
             return view('incomes-categories.edit', compact('incomeCategory'));
         /* }else {
             return redirect(route('account', $user));
@@ -99,7 +100,9 @@ class IncomeCategoryController extends Controller
      */
     public function destroy(IncomeCategory $incomeCategory)
     {
+
         $incomeCategory->delete();
+
         return redirect(route('incomesCategories.index'));
     }
 }

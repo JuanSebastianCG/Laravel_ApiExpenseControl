@@ -11,6 +11,7 @@ class IncomeCategory extends Model
 
     protected $fillable = [
         'categoryName',
+
     ];
 
 
