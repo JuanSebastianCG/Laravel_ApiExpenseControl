@@ -15,7 +15,7 @@
                         </a>
                     </div>
                     <div class="col-1">
-                        {!! Form::open(['route' => ['incomesCategories.destroy', $incomeCategory-> id ], 'method' => 'delete']) !!}
+                        {!! Form::open(['route' => ['incomesCategories.destroy', $incomeCategory->id], 'method' => 'delete']) !!}
 
                             {!! Form::button('<i class="fa-solid fa-trash-can float-right"></i>', [
                                 'type' => 'submit',

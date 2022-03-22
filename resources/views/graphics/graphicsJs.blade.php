@@ -28,14 +28,16 @@ $(document).ready(function(){
                         }
                     }
                 });
-
+                console.log(data[1]);
                 data[3].forEach(Expense => {
                     for (let i = 0; i < data[1].length; i++) {
+                        console.log(data[1][i].id +" " +Expense.expense_category_id)
                         if (data[1][i].id == Expense.expense_category_id ) {
-                            console.log(Expense.value)
+
                             expense[i] = expense[i] + Expense.value;
                         }
                     }
+                    //console.log(expense)
                 incomeGraph(incomeCategory, income)
                 expenseGraph(expenseCategory, expense)
 
@@ -53,7 +55,7 @@ $(document).ready(function(){
 var ctx = document.getElementById("incomeDiv").getContext('2d');
 
 var myChart = new Chart(ctx, {
-    type: 'polarArea',
+    type: 'bar',
     data: {
         labels: incomeCategory,
         datasets: [{
@@ -96,11 +98,11 @@ var myChart = new Chart(ctx, {
 var ctx = document.getElementById("expenseDiv").getContext('2d');
 
 var myChart = new Chart(ctx, {
-    type: 'polarArea',
+    type: 'bar',
     data: {
         labels: expenseCategory,
         datasets: [{
-            label: 'categarias de ingresos',
+            label: 'categorias de ingresos',
             data: expense ,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

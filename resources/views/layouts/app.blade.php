@@ -58,7 +58,7 @@
                                 </li>
                             @endif
                         @else
-                        <li class="nav-item dropdown mx-2">
+                        {{-- <li class="nav-item dropdown mx-2">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Categorías
                             </a>
@@ -68,7 +68,7 @@
                                 <a style="color: black" class="nav-link" href="{{ route('incomesCategories.index')}}">  Ver categorias de ingresos </a>
                             </div>
 
-                        </li>
+                        </li> --}}
 
                             <li class="nav-item dropdown mx-2">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -88,7 +88,7 @@
                                     </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a style="color: black" class="nav-link" href="{{ route('account.edit', $user = Auth()->user()) }}">    Editar Perfil</a>
+                                    <a class="dropdown-item" href="{{ route('account.edit', $user = Auth()->user()) }}"> Editar Perfil</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

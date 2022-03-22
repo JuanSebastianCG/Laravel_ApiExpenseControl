@@ -18,9 +18,10 @@
 
                 <br>
 
-                {!! Form::model($incomeCategory, ['method' => 'PUT', 'route' => ['incomesCategories.update' , $incomeCategory -> id  ]]) !!}
+                {!! Form::model($incomeCategory, ['method' => 'PUT', 'route' => ['incomesCategories.update' , $incomeCategory-> id ]]) !!}
 
                     @include('incomes-categories.subview-category-fields')
+
                     <div class="container">
                         <center>
                             <button type="submit" class="btn btn-success btn-lg">   Editar   </button>
