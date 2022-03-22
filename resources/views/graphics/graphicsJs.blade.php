@@ -55,7 +55,7 @@ $(document).ready(function(){
 var ctx = document.getElementById("incomeDiv").getContext('2d');
 
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
         labels: incomeCategory,
         datasets: [{
@@ -98,7 +98,7 @@ var myChart = new Chart(ctx, {
 var ctx = document.getElementById("expenseDiv").getContext('2d');
 
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
         labels: expenseCategory,
         datasets: [{
