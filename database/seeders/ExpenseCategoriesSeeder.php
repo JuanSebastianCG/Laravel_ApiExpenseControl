@@ -25,5 +25,9 @@ class ExpenseCategoriesSeeder extends Seeder
         $p->categoryName = "hogar";
         $p->save();
 
+        $p = new ExpenseCategory();
+        $p->categoryName = "hogar";
+        $p->save();
+
     }
 }

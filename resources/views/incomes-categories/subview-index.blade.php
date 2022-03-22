@@ -10,12 +10,12 @@
                     </div>
 
                     <div class="col-1 ">
-                        <a href="{{ route('incomesCategories.edit', $incomeCategory->) }}" class = "btn btn-info" title="Editar Categoria">
+                        <a href="{{ route('incomesCategories.edit', $incomeCategory->id) }}" class = "btn btn-info" title="Editar Categoria">
                             <i class="fa-solid fa-pen-to-square" ></i>
                         </a>
                     </div>
                     <div class="col-1">
-                        {!! Form::open(['route' => ['incomesCategories.destroy', $incomeCategory-> id ], 'method' => 'delete']) !!}
+                        {!! Form::open(['route' => ['incomesCategories.destroy', $incomeCategory->id], 'method' => 'delete']) !!}
 
                             {!! Form::button('<i class="fa-solid fa-trash-can float-right"></i>', [
                                 'type' => 'submit',

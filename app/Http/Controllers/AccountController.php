@@ -35,7 +35,7 @@ class AccountController extends Controller
 
         $incomeCategory = IncomeCategory::all();
         $expenseCategory = ExpenseCategory::all();
-
+        
         if ($vista) {
             if ($vista === "1") {
                 $collections = $incomes;
@@ -46,7 +46,8 @@ class AccountController extends Controller
             }elseif ($vista === "2") {
                 $collections = $expenses;
                 if ($category) {
-                    $collections = $incomes->where('income_category_id',  "$category");
+                    $collections = $expenses->where('expense_category_id',  "$category");
+
                 }
             }
 

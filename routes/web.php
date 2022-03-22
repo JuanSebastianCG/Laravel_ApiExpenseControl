@@ -28,8 +28,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('expenses', App\Http\Controllers\ExpenseController::class);
     Route::resource('incomes', App\Http\Controllers\IncomeController::class);
 
-    Route::resource('expensesCategories', App\Http\Controllers\ExpenseCategoryController::class)->middleware('auth');
-    Route::resource('incomesCategories', App\Http\Controllers\IncomeCategoryController::class)->middleware('auth');
+    Route::resource('expensesCategories', App\Http\Controllers\ExpenseCategoryController::class);
+    Route::resource('incomesCategories', App\Http\Controllers\IncomeCategoryController::class);
 
     Route::get('/dataFromGraphics', [App\Http\Controllers\GraphicsController::class, 'sendData'])->name('dataFromGraphics');
 });
