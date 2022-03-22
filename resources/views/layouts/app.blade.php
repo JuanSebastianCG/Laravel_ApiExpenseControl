@@ -54,7 +54,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item mx-2">
-                                    <a type="button" class="btn btn-success" href="{{ route('register') }}">{{ __('Registrase') }}</a>
+                                    <a type="button" class="btn btn-success" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
                             @endif
                         @else

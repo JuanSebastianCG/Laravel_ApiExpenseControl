@@ -49,15 +49,27 @@
                         
 
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-3 offset-md-4">
                                 <center>
                                     <button type="submit" class="btn btn-success">
                                         {{ __('Confirmar cambios') }}
                                     </button>
                                 </center>
                             </div>
-                        </div>
+
                     {{-- </form> --}}
+                    {!! Form::close() !!}
+
+                    {!! Form::open(['route' => ['account.destroy', $user->id], 'method' => 'delete']) !!}
+
+                        <div class="col-md-8 offset-md-4">
+                            <center>
+                                <button type="warning" class="btn btn-danger">
+                                    {{ __('Eliminar Perfil') }}
+                                </button>
+                            </center>
+                        </div>
+                    </div>
                     {!! Form::close() !!}
                 </div>
             </div>
