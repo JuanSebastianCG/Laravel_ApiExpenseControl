@@ -25,5 +25,9 @@ class IncomeCategoriesSeeder extends Seeder
         $p->categoryName = "baloto";
         $p->save();
 
+        $p = new IncomeCategory();
+        $p->categoryName = "regalias";
+        $p->save();
+
     }
 }
